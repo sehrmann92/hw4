@@ -17,19 +17,17 @@ int main(void)
 	
 	//Array füllen und ausgeben über Funktionen
 	numbers(ar,N);
-	Ausgabe(ar,N);
-	
+	Ausgabe(ar,N); //nur für kleine N zu empfehln
 	
 	//Minimum und Maximum bestimmen inkl. Ausgabe
-	minmax(ar,N,max,min);
-	cout << "Minimum \t"<<min<<endl;
-	cout << "Maximum \t"<<max<<endl;
+	minmax(ar,N,max,min);	
 		
 	return 0;
 }
 
 void numbers(double* p, const int N)
 {
+	srand(time(NULL));
 	for(int i=0;i<N;i++)
 	{
 		p[i]=double(rand());
@@ -49,7 +47,13 @@ void minmax(double* p, const int N, double& max, double& min)
 		{
 			max=p[i];
 		}
+		if(min>=p[i])
+		{
+			min=p[i];
+		}
 	}
+	cout << "Minimum \t"<<min<<endl;
+	cout << "Maximum \t"<<max<<endl;
 }
 
 void Ausgabe(double *p,const int N)
